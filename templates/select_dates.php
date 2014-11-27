@@ -1,26 +1,23 @@
 <?php
-	\OCP\Util::addStyle('polls', 'page1');
+	\OCP\Util::addStyle('polls', 'page0');
 	\OCP\Util::addScript('polls', 'select_dates');
 
 	$arr = explode("\n", $desc);
 ?>
+
+<h1><?php echo $title; ?></h1>
+
+<h2><?php p($l->t('Description')); ?></h2>
+<div class="wordwrap desc"><?php echo $desc; ?></div>
+
 <table id="id_table_1">
 	<tr>
-	<th class="cl_title_header" rowspan="<?php count($arr); ?>"><em><div id="id_title"><?php echo $title; ?></div></em></th>
-
-	<tr>
-		<th class="cl_desc_header"><em><div class="wordwrap" id="id_descr"><?php echo $desc; //wordwrap($line, 50, "<br/>", true); ?></div></em></th>
+       <td><h3><?php p($l->t('Click on days to add or remove')); ?></h3></td>
+       <td><h3><?php p($l->t('Select hour & minute, then click on time')); ?></h3></td>
 	</tr>
 	<tr>
-		<td>&nbsp;</td>
-	</tr>
-	<tr>
-       <td><h2><?php p($l->t('Click on days to add or remove')); ?></h2></td>
-       <td><h2><?php p($l->t('Select hour & minute, then click on time')); ?></h2></td>
-	</tr>
-	<tr>
-		<td class="cl_pad_left">
-			<table id="id_cal_table" class="cl_with_border">
+		<td>
+			<table id="id_cal_table" class="cl_with_border padded">
 			<tr>
 				<th style="padding:0px" colspan="1">
 					<a id="id_header_prev_month"><<</a>
@@ -49,8 +46,8 @@
 			<?php endfor; ?>
 			</table>
 		</td>
-		<td class="cl_pad_left">
-			<table id="id_time_table">
+		<td>
+			<table class="padded">
 				<tr>
 					<td>
 						<table id="id_hours_table" >

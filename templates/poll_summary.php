@@ -13,11 +13,11 @@
 		<table class="cl_create_form">
 			<tr>
 				<th><?php p($l->t('Title')); ?></th>
-				<th id="id_th_descr"><?php p($l->t('Description')); ?></th>
-				<th class="cl_cell_width"><?php p($l->t('Created')); ?></th>
+				<th><?php p($l->t('Description')); ?></th>
+				<th><?php p($l->t('Created')); ?></th>
 				<th><?php p($l->t('By')); ?></th>
 				<th><?php p($l->t('participated')); ?></th>
-				<th id="id_th_descr"><?php p($l->t('Access')); ?></th>
+				<th><?php p($l->t('Access')); ?></th>
 			</tr>
 
 			<?php
@@ -48,7 +48,7 @@
 					$url .= 'goto/' . $row['id'];
 					?>
 
-					<td class="cl_poll_url" title="<?php p($l->t('Click to get link')); ?>"><input type="hidden" value="<?php echo $url; ?>" /><?php echo date('d.m.Y H:i', $row['created']); ?></td>
+					<td class="clickable cl_poll_url" title="<?php p($l->t('Click to get link')); ?>"><input type="hidden" value="<?php echo $url; ?>" /><?php echo date('d.m.Y H:i', $row['created']); ?></td>
 					<td>
 						<?php
 							if($row['owner'] == OCP\User::getUser()) p($l->t('Yourself'));
@@ -83,7 +83,7 @@
 						<div class="partic_all <?php echo $partic_class; ?>">
 						</div>
                     </td>
-					<td <?php if (strcmp($row['owner'], OCP\User::getUser()) == 0) echo 'class="cl_poll_access" title="'.$l->t('Edit access').'"' ?> >
+					<td <?php if (strcmp($row['owner'], OCP\User::getUser()) == 0) echo 'class="clickable cl_poll_access" title="'.$l->t('Edit access').'"' ?> >
 						<?php p($l->t($row['access'])); ?>
 					</td>
 					<?php if (strcmp($row['owner'], OCP\User::getUser()) == 0) : ?>

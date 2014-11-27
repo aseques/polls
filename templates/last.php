@@ -1,5 +1,5 @@
 <?php
-\OCP\Util::addStyle('polls', 'page2');
+\OCP\Util::addStyle('polls', 'page0');
 \OCP\Util::addScript('polls', 'last');
 
 use \OCP\DB;
@@ -78,23 +78,19 @@ $line = str_replace("\n", '<br>', $desc);
 
 ?>
 <h2><?php p($l->t('poll URL')); ?></h2>
-<p class="url">
-	<?php
-		$url = \OCP\Util::linkToRoute('polls_index');
-		$url = \OC_Helper::makeURLAbsolute($url);
-		$url .= 'goto/' . $poll_id;
-	?>
-	<a href="<?php echo $url;?>"><?php echo $url; ?></a>
-	<?php //echo '</td></tr>'; ?>
-</p>
-
+<?php
+	$url = \OCP\Util::linkToRoute('polls_index');
+	$url = \OC_Helper::makeURLAbsolute($url);
+	$url .= 'goto/' . $poll_id;
+?>
+<a href="<?php echo $url;?>"><?php echo $url; ?></a>
+<?php //echo '</td></tr>'; ?>
 
 <div class="scroll_div">
-	<table class="cl_table_1" id="id_table_1"> <?php //from above title ?>
+	<table class="scrollable_table" > <?php //from above title ?>
 
 		<tr>
 			<th <?php if ($poll_type === 'datetime') echo 'rowspan="3"'; ?>>&nbsp;</th> <?php // upper left header rectangle ?>
-
 		<?php
 		if ($poll_type === 'datetime') {
 			echo $for_string_years;
@@ -147,7 +143,7 @@ $line = str_replace("\n", '<br>', $desc);
 				foreach($chosen as $dt) {
 					$i_tot++;
 
-					$cl = 'cl_maybe';
+					$cl = 'vote_square cl_maybe';
 
 					$arr = $others[$usr];
 					if ($poll_type === 'datetime') {
@@ -161,12 +157,12 @@ $line = str_replace("\n", '<br>', $desc);
 					foreach ($others[$usr] as $obj) {
 						if ($str === $obj->dt) {
 							if ($obj->ok === 'yes') {
-								$cl = 'cl_yes';
+								$cl = 'vote_square cl_yes';
 								$total_y[$i_tot]++;
 							}
 							else if ($obj->ok === 'no') {
 								$total_n[$i_tot]++;
-								$cl = 'cl_no';
+								$cl = 'vote_square cl_no';
 							}
 							break;
 						}
@@ -209,23 +205,23 @@ $line = str_replace("\n", '<br>', $desc);
 			}
 
 			// see if user already has data for this event
-			$cl = 'cl_maybe';
+			$cl = 'vote_square cl_maybe';
 			if (isset($user_voted)){
 				foreach ($user_voted as $obj) {
 					if ($obj->dt === $str) {
 						if ($obj->ok === 'yes'){
-							$cl = 'cl_yes';
+							$cl = 'vote_square cl_yes';
 							$total_y[$i_tot]++;
 						}
 						else if ($obj->ok === 'no'){
-							$cl = 'cl_no';
+							$cl = 'vote_square cl_no';
 							$total_n[$i_tot]++;
 						}
 					}
 				}
 			}
 
-			echo '<td class="cl_click ' . $cl . '">&nbsp';
+			echo '<td class="clickable cl_click' . $cl . '">&nbsp';
 
 			echo '<input type="hidden" value="' . $str .   '" />';
 			echo '</td>';
@@ -237,8 +233,8 @@ $line = str_replace("\n", '<br>', $desc);
 			<th><?php p($l->t('Total')); ?>:</th>
 			<?php for ($i = 0; $i < count($chosen); $i++) :
 				echo '<td><table id="id_tab_total"><tr>';
-				echo '<td id="id_y_' . $i . '" class="cl_total_y">' . (isset($total_y[$i]) ? $total_y[$i] : '0') . '</td>';
-				echo '<td id="id_n_' . $i . '" class="cl_total_n">' . (isset($total_n[$i]) ? $total_n[$i] : '0') . '</td>';
+				echo '<td id="id_y_' . $i . '" class="cl_yes">' . (isset($total_y[$i]) ? $total_y[$i] : '0') . '</td>';
+				echo '<td id="id_n_' . $i . '" class="cl_no">' . (isset($total_n[$i]) ? $total_n[$i] : '0') . '</td>';
 				echo '</tr></table></td>';
 			endfor; ?>
 		</tr>
@@ -254,7 +250,7 @@ $line = str_replace("\n", '<br>', $desc);
 	</tr>
 	<tr>
 		<th><?php p($l->t('Comment')); ?></th>
-		<td><textarea cols="50" rows="5" id="comment_box"></textarea></td>
+		<td><textarea style="width: 200px;" cols="50" rows="5" id="comment_box"></textarea></td>
 	</tr>
 	<?php // -------- submit ----------- ?>
 	<tr>
@@ -286,7 +282,7 @@ $line = str_replace("\n", '<br>', $desc);
 			</th>
 			<td>
 				<div class="wordwrap">
-					<?php echo $obj->comment; //wordwrap(str_replace("\n", "<br>", $obj->comment), 100, "<br/>", true); ?>
+					<?php echo $obj->comment; ?>
 				</div>
 			</td>
 		</tr>

@@ -24,7 +24,7 @@ $(document).ready(function () {
             // td has inner 'input'; value is poll url
             var cell = e.target;
             var url = cell.getElementsByTagName('input')[0].value;
-            window.prompt(t('Copy to clipboard: Ctrl+C, Enter'), url);
+            window.prompt(t('polls','Copy to clipboard: Ctrl+C, Enter'), url);
         }
     }
 
@@ -179,10 +179,7 @@ function showAccessDialog(e) {
 				}
 			}
 		}
-
-
 	}
-
 }
 function closeAccessDialog() {
 	var html = '';
@@ -209,7 +206,6 @@ function closeAccessDialog() {
 	}
 
 	if (edit_access_id) {
-
 		// search cell with this id
 		cells = document.getElementsByClassName('cl_link');
 		var id_cell = null;

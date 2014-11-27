@@ -1,4 +1,3 @@
-
 <div id="dialog-box">
 	<div id="dialog-message"></div>
 	

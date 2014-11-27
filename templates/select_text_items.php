@@ -1,25 +1,22 @@
 <?php
-\OCP\Util::addStyle('polls', 'select_text_items');
+\OCP\Util::addStyle('polls', 'page0');
 \OCP\Util::addScript('polls', 'select_text_items');
 
 $arr = explode("\n", $desc);
 ?>
+
+<h1><?php echo $title; ?></h1>
+
+<h2><?php p($l->t('Description')); ?></h2>
+<div class="wordwrap desc"><?php echo $desc; ?></div>
+
 <table>
 	<tr>
-		<th class="cl_title_header" rowspan="<?php count($arr); ?>"><em><div id="id_title"><?php echo $title; ?></div></em></th>
-
-	<tr>
-		<th class="cl_desc_header"><em><div class="wordwrap" id="id_descr"><?php echo $desc; ?></div></em></th>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
-	</tr>
-
-	<tr>
-		<td class="cl_pad_left">
+		<td>
 			<table>
 				<tr>
 					<td><em><?php p($l->t('Text item')); ?></em></td>
+					<td></td>
 				</tr>
 				<tr>
 					<td><input type="text" style="width: 200px;" class="input_field" id="input_text_item" name="text_title"/></td>
@@ -27,13 +24,15 @@ $arr = explode("\n", $desc);
 				</tr>
 				<tr>
 					<td><em><?php p($l->t('Description')); ?></em></td>
+					<td></td>
 				</tr>
 				<tr>
 					<td><textarea cols="50" rows="3" style="width: 200px;" class="input_field" id="input_text_desc" name="text_desc"></textarea></td>
+					<td></td>
 				</tr>
 			</table>
 		</td>
-		<td class="cl_pad_left">
+		<td>
 			<table id="id_table_text_items">
 				<tr>
 					<th>&nbsp;</th>

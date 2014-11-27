@@ -7,9 +7,41 @@ h1 {
     margin-bottom: 15px;
 }
 
-.new_poll input.input_field {
+h2 {
+    font-size: 1.5em;
+    margin: 10px 0 5px 0;
+}
+
+footer {
+        text-align: center;
+        color: #777;
+}
+
+th {
+    padding: 7px;
+    background-color: aliceblue;
+}
+
+td {
+	vertical-align: center;
+	text-align: center;
+}
+
+table {
+	padding: 10px 10px 10px 10px;
+}
+
+th {
+    text-align: center;
+    border-width: 3px;
+    border-style: solid;
+    border-color: white;
+}
+
+input.input_field {
 	width: 20%;
 }
+
 .label_h1 {
 	display:block;
 }
@@ -40,10 +72,44 @@ div.partic_no {
 	background-color: red;
 }
 
-th {
-    padding: 3px;
-    background-color: aliceblue;
+div.scroll_div {
+	width: 100%;
+	overflow-x: auto;
+	overflow-y: hidden;
 }
+
+td.td_shown {
+    visibility: visible;
+}
+
+.td_hidden {
+    visibility: hidden;
+    visibility: collapse;
+}
+
+.td_selected {
+	background-color: green;
+}
+
+.cl_with_border td {
+    padding-right: 15px;
+    padding: 1px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: gray;
+    -moz-border-radius: initial;
+    text-align: center;
+    vertical-align: bottom;
+	cursor: pointer;
+}
+.scrollable_table {
+	table-layout: fixed;
+}
+
+.desc {
+    color: #333333;
+}
+
 .wordwrap {
 	width: 50%;
     white-space: pre-wrap;      /* CSS3 */
@@ -53,67 +119,174 @@ th {
     word-wrap: break-word;
 	word-break: break-all;
 }
+
 .cl_title {
     font-size: 2em;
-    /*padding: 7px;*/
-    /*background-color: cadetblue;*/
-
 }
+
 .input_title{
     font-size: 1.2em;
 }
-#id_in_title {
-    width: 390px;
+.padded td {
     padding: 10px;
-    margin: 0px;
-    /*border: 1px solid #CCC;*/
-
-}
-
-#id_in_descr {
-    width: 400px;
-    height: 150px;
 }
 
 .cl_create_form td {
     padding: 3px;
     text-align: left;
     vertical-align: center;
-    border-left: 1px solid #cccccc;
+   /* border-left: 1px solid #cccccc;*/
     border-top: 2px solid gray;
-    /*border-left: 15px solid white;*/
 }
 
-
-/*td {
-    background-color: red;
-    padding: 3px;
-    vertical-align: center;
-    text-align: center;
-}*/
-
-.cl_link {
-    cursor: pointer;
-    /*border: 1px solid #CCC;*/
+.cl_create_form  tr:last-child  td{
+	border-bottom: 2px solid gray;
 }
+
 .cl_delete {
 	cursor: pointer;
 	background-color: #ff0000;
 }
 
-#id_th_descr {
-	width: 400px;
+.cl_time_display {
+	background-color: aqua;
+	cursor: pointer;
+}
+.cl_date_time_header {
+	cursor: pointer;
+}
+.cl_date_time_header:hover {
+	background-color: red;
+}
+.cl_hour {
+    cursor: pointer;
+    background-color: white;
+}
+.cl_min {
+	cursor: pointer;
+    background-color: white;
+}
+.cl_hour_selected {
+    background-color: green;
+}
+.cl_min_selected {
+    background-color: green;
+}
+.clickable {
+    cursor: pointer;
 }
 
-#id_tab_radio td {
+.cl_pad_left {
+    padding-left: 30px;
+}
+
+.cl_del_item {
+    cursor: pointer;
+    padding-left: 5px;
+    padding-right: 5px;
+
+}
+.cl_del_item:hover {
+    background-color: red;
+}
+
+.vote_square {
+    border-width: 1px;
+    border-style: solid;
+    border-color: gray;
+}
+
+.cl_maybe {
+    background-color: white;
+}
+
+.cl_yes {
+    background-color: green;
+}
+
+.cl_no {
+    background-color: red;
+}
+
+/*.cl_total_y {
+	background-color: green;
+}
+
+.cl_total_n {
+	background-color: red;
+}*/
+
+.cl_user_comments {
+    table-layout: fixed;
+}
+
+.cl_user_comments td {
     text-align: left;
 }
 
-.cl_poll_url {
-    cursor: pointer;
+.cl_user_comments th {
+    word-wrap: break-word;
+    vertical-align: top;
+    text-align: center;
 }
-.cl_poll_access {
-    cursor: pointer;
+
+#id_user_name {
+    font-size: 1.1em;
+    text-align: left;
+}
+#id_user_dt {
+    font-size: 0.6em;
+    text-align: left;
+}
+
+#id_tab_total {
+	height: 2em;
+	width: 100%;
+	text-align: center;
+	/*position: relative;*/
+	/*top: 10px;*/
+}
+
+#id_poss_table td {
+    padding: 2px;
+}
+
+/* date names */
+#id_header_month_1:before {
+    content: 'Jan';
+}
+#id_header_month_2:before {
+    content: 'Feb';
+}
+#id_header_month_3:before {
+    content: 'Mar';
+}
+#id_header_month_4:before {
+    content: 'Apr';
+}
+#id_header_month_5:before {
+    content: 'May';
+}
+#id_header_month_6:before {
+    content: 'Jun';
+}
+#id_header_month_7:before {
+    content: 'Jul';
+}
+#id_header_month_8:before {
+    content: 'Aug';
+}
+#id_header_month_9:before {
+    content: 'Sep';
+}
+#id_header_month_10:before {
+    content: 'Oct';
+}
+#id_header_month_11:before {
+    content: 'Nov';
+}
+#id_header_month_12:before {
+    content: 'Dec';
 }
 
 /*  users, groups...   */
