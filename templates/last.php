@@ -221,7 +221,7 @@ $line = str_replace("\n", '<br>', $desc);
 				}
 			}
 
-			echo '<td class="clickable cl_click' . $cl . '">&nbsp';
+			echo '<td class="clickable cl_click ' . $cl . '">&nbsp';
 
 			echo '<input type="hidden" value="' . $str .   '" />';
 			echo '</td>';
